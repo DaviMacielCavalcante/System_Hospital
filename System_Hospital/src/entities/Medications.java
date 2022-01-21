@@ -9,8 +9,12 @@ public class Medications {
 		
 	}
 
-	public Medications(String medName, Double dose) {		
+	public Medications(String medName) {		
 		this.medName = medName;
+		
+	}
+	
+	public void MedicaDose(Double dose) {
 		this.dose = dose;
 	}
 
@@ -24,15 +28,6 @@ public class Medications {
 
 	public void setDose(Double dose) {
 		this.dose = dose;
-	}
-	
-	public void increaseDosage(double dose) {
-		this.dose += dose;
-	}
-	
-	public void decreaseDosage(double dose) {
-		this.dose -= dose;
-	}
-	
+	}	
 	
 }

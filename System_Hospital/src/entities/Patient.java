@@ -4,36 +4,36 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pacient {
+public class Patient {
 
 	private String name;
 	private Integer rg;
 	private Integer cpf;
 	private String street;
 	private int house;
-	private String bairro;
+	private String district;
 	private String city;
 	private String state;
-	private Date birtDate;
+	private Date birthDate;
 	
 	private List<PhoneNumber> phNumb = new ArrayList<>();
-	private List<Medications> medication = new ArrayList<>();
 	
-	public Pacient() {
+	
+	public Patient() {
 		
 	}
 
-	public Pacient(String name, Integer rg, Integer cpf, String street, int house, String bairro, String city,
-			String state, Date birtDate) {		
+	public Patient(String name, Integer rg, Integer cpf, String street, int house, String district, String city,
+			String state, Date birthDate) {		
 		this.name = name;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.street = street;
 		this.house = house;
-		this.bairro = bairro;
+		this.district = district;
 		this.city = city;
 		this.state = state;
-		this.birtDate = birtDate;
+		this.birthDate = birthDate;
 	}
 
 	public String getName() {
@@ -69,11 +69,11 @@ public class Pacient {
 	}
 
 	public String getBairro() {
-		return bairro;
+		return district;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setBairro(String district) {
+		this.district = district;
 	}
 
 	public String getCity() {
@@ -92,18 +92,12 @@ public class Pacient {
 		this.state = state;
 	}
 
-	public Date getBirtDate() {
-		return birtDate;
+	public Date getBirhtDate() {
+		return birthDate;
 	}
 
 	public List<PhoneNumber> getPhNumb() {
 		return phNumb;
 	}	
-
-	public List<Medications> getMedication() {
-		return medication;
-	}
-	
-	
 	
 }
