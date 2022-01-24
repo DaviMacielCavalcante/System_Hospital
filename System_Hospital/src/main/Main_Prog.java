@@ -3,8 +3,10 @@ package main;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Medications;
 import entities.Patient;
 import entities.Physician;
 
@@ -12,8 +14,10 @@ public class Main_Prog {
 
 	public static void main(String[] args) throws ParseException {
 		
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
 		
 		System.out.println("--------------------------------------");
@@ -21,45 +25,52 @@ public class Main_Prog {
 		System.out.println("--------------------------------------");
 		System.out.println();
 		
-		System.out.println("Enter doctor data: ");
-		System.out.print("NAME: ");
-		String name = sc.nextLine();
-		System.out.println("CRM: ");
-		String crm_cod = sc.nextLine();
-		System.out.println("ESPECIALIZATION: ");
-		String especi = sc.next();		
-		Physician phy = new Physician(name, crm_cod, especi);		
-		System.out.println();
-		
 		System.out.println("Enter patient data: ");
 		System.out.print("NAME: ");
 		String namePat = sc.nextLine();
-		System.out.println("RG: ");
+		System.out.print("RG: ");
 		Integer rg = Integer.valueOf(sc.nextLine());
-		System.out.println("CPF: ");
+		System.out.print("CPF: ");
 		Integer cpf = Integer.valueOf(sc.nextLine());
 		System.out.print("STREET: ");
 		String street = sc.nextLine();
-		System.out.println("HOUSE: ");
+		System.out.print("HOUSE: ");
 		int house = sc.nextInt();
-		System.out.println("DISTRICT: ");
+		System.out.print("DISTRICT: ");
 		sc.nextLine();
 		String distr = sc.nextLine();
-		System.out.println("CITY: ");
+		System.out.print("CITY: ");
 		String city = sc.nextLine();
-		System.out.println("STATE: ");
+		System.out.print("STATE: ");
 		String state = sc.nextLine();
 		System.out.print("BIRTH DATE: ");
 		Date birth_date = sdf.parse(sc.nextLine());
-		System.out.println("PHONE NUMBER: ");
+		System.out.print("PHONE NUMBER: ");
 		String phNumb = sc.nextLine();			
-		Patient pat = new Patient(namePat, rg, cpf, street, house, distr, city, state, birth_date);
+		Patient pat = new Patient(namePat, rg, cpf, street, house, distr, city, state, birth_date, phNumb);
+		
+		System.out.print("Medication: ");
+		String medications = sc.next();
+		System.out.print("Dose (ml): ");
+		Double dose = sc.nextDouble();		
+		Medications medication = new Medications(medications, dose);
+		
+		sc.nextLine();
+		System.out.println("Enter doctor data: ");
+		System.out.print("NAME: ");
+		String name = sc.nextLine();
+		System.out.print("CRM: ");
+		String crm_cod = sc.nextLine();
+		System.out.print("ESPECIALIZATION: ");
+		String especi = sc.next();		
+		Physician phy = new Physician(name, crm_cod, especi);
 		phy.addPatient(pat);
-		System.out.println("Medication and dose: ");
-		String medications = sc.next();	
-		Double dose = sc.nextDouble();
-		phy.addMedications(medications, dose);
-		System.out.println("Dose: ");
+		phy.addMedications(medication);
+		System.out.println();
+		
+		System.out.println("PRESCRIPTION: ");
+		System.out.println(sdf2.format(new Date()));
+		System.out.println(phy);
 		
 		
 		

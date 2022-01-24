@@ -9,9 +9,9 @@ public class Medications {
 		
 	}
 
-	public Medications(String medName) {		
+	public Medications(String medName, Double dose) {		
 		this.medName = medName;
-		
+		this.dose = dose;
 	}
 	
 	public void MedicaDose(Double dose) {
@@ -28,6 +28,16 @@ public class Medications {
 
 	public void setDose(Double dose) {
 		this.dose = dose;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return  medName
+				+ ", "
+				+ dose
+				+ " ml";
+
+	}
+	
 	
 }

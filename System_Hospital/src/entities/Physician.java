@@ -47,14 +47,36 @@ public class Physician {
 	}
 	
 	public void removePatient(Patient patients) {
-		patient.remove(patients);
+		patient.remove(patients);	
 	}
 	
-	public void addMedications(Medications medications, Double dose) {
-		medication.addAll(medications, dose);
+	public void addMedications(Medications medication) {
+		this.medication.add(medication);
 	}
 	
-	public void removeMedications(Medications medications, Double dose) {
-		medication.remove(medications, dose);
+	public void removeMedications(Medications medication) {
+		this.medication.remove(medication);	
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Doctor name: ");
+		sb.append(name + "\n");
+		sb.append("Specialization: ");
+		sb.append(specName + "\n");
+		sb.append("Patient: ");
+		for (Patient p : patient) {
+			sb.append(p + "\n");
+		}
+		sb.append("Medication and Dose: ");
+		for (Medications m : medication) {
+			sb.append(m + "\n");
+		}
+		
+		return sb.toString();
+
+	}
+	
+	
 }
