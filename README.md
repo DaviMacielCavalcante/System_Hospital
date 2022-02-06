@@ -1,2 +1,2 @@
 # System_Hospital
- A prototype system for a hospital
+ Um protótipo de sistema para coleta de dados de pacientes em uma clínica. Ele também emite uma forma de receita médica.
