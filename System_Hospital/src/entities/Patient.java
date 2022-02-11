@@ -23,7 +23,7 @@ public class Patient {
 	}
 
 	public Patient(String name, Integer rg, Integer cpf, String street, int house, String district, String city,
-			String state, Date birthDate, String phoneN) {
+			String state, Date birthDate, String phoneN) {		
 		this.name = name;
 		this.rg = rg;
 		this.cpf = cpf;

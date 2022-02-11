@@ -69,7 +69,7 @@ public class Physician {
 		for (Patient p : patient) {
 			sb.append(p + "\n");
 		}
-		sb.append("Medication and Dose: ");
+		sb.append("Medication and Dose: \n");
 		for (Medications m : medication) {
 			sb.append(m + "\n");
 		}
