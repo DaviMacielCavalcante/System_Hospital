@@ -90,6 +90,7 @@ public class Main_Prog {
 			}				
 					
 		} while (error == true);
+		sc.close();	
 	}
 }
 	
