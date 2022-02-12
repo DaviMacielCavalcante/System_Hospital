@@ -27,7 +27,7 @@ public class Main_Prog {
 		boolean error = true;
 		do {
 			try {
-				error = false;
+				error = false;				
 				System.out.println("Enter patient data: ");
 				System.out.print("NAME: ");
 				String namePat = sc.nextLine();
