@@ -3,18 +3,18 @@ package entities;
 public class Medications {
 
 	private String medName;
-	private Double dose;
+	private String dose;
 	
 	public Medications() {
 		
 	}
 
-	public Medications(String medName, Double dose) {		
+	public Medications(String medName, String dose) {		
 		this.medName = medName;
 		this.dose = dose;
 	}
 	
-	public void MedicaDose(Double dose) {
+	public void MedicaDose(String dose) {
 		this.dose = dose;
 	}
 
@@ -22,11 +22,11 @@ public class Medications {
 		return medName;
 	}	
 
-	public Double getDose() {
+	public String getDose() {
 		return dose;
 	}
 
-	public void setDose(Double dose) {
+	public void setDose(String dose) {
 		this.dose = dose;
 	}
 

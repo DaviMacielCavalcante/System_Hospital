@@ -25,7 +25,7 @@ public class Main_Prog {
 		System.out.println();
 		
 		boolean error = true;
-		do {
+		do {			
 			try {
 				error = false;				
 				System.out.println("Enter patient data: ");
@@ -67,9 +67,9 @@ public class Main_Prog {
 				for (int i = 1; i <= n; i++) {
 					sc.nextLine();
 					System.out.print("Medication: ");
-					String medications = sc.next();
-					System.out.print("Dose (ml): ");
-					Double dose = sc.nextDouble();		
+					String medications = sc.next();					
+					System.out.print("Dose: ");
+					String dose = sc.nextLine();		
 					Medications medication = new Medications(medications, dose);
 					phy.addMedications(medication);
 				}
@@ -81,14 +81,14 @@ public class Main_Prog {
 				
 				System.out.println("PRESCRIPTION: ");
 				System.out.println(sdf2.format(new Date()));
-				System.out.println(phy);
-			
+				System.out.println(phy);			
 			}
 			catch (Exception e) {				
 				System.out.println("Invalid input data");
 				error = true;
+				sc.nextLine();
 			}				
-			sc.close();			
+					
 		} while (error == true);
 	}
 }
