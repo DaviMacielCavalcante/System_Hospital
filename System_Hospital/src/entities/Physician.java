@@ -2,12 +2,14 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Physician {
 
 	private String name;
 	private String crm;		
-	private String specName;	
+	private String specName;
+	private String inf;
 	
 	private List<Patient> patient = new ArrayList<>();
 	private List<Medications> medication = new ArrayList<>();
@@ -42,6 +44,10 @@ public class Physician {
 		return patient;
 	}
 	
+	public String getInf() {
+		return inf;
+	}
+
 	public void addPatient(Patient patients) {
 		patient.add(patients);
 	}
@@ -56,6 +62,15 @@ public class Physician {
 	
 	public void removeMedications(Medications medication) {
 		this.medication.remove(medication);	
+	}
+	
+	public String information() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String or = sc.nextLine();		
+		sc.close();		
+		return inf = or;		
 	}
 
 	@Override
@@ -72,10 +87,8 @@ public class Physician {
 		sb.append("Medication and Dose: \n");
 		for (Medications m : medication) {
 			sb.append(m + "\n");
-		}
-		
+		}			
 		return sb.toString();
-
 	}
 	
 	

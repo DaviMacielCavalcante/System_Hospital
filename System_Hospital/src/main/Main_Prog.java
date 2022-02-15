@@ -62,12 +62,12 @@ public class Main_Prog {
 				Physician phy = new Physician(name, crm_cod, especi);
 			
 			
-				System.out.println("How many medications? ");
+				System.out.print("How many medications? ");
 				int n = sc.nextInt();
 				for (int i = 1; i <= n; i++) {
 					sc.nextLine();
 					System.out.print("Medication: ");
-					String medications = sc.next();					
+					String medications = sc.nextLine();					
 					System.out.print("Dose: ");
 					String dose = sc.nextLine();		
 					Medications medication = new Medications(medications, dose);
@@ -79,9 +79,19 @@ public class Main_Prog {
 				
 				System.out.println();
 				
+				System.out.println("Any additional information? [y/n]");
+				char resp = sc.next().charAt(0);
+				if ( resp == 'y') {
+					phy.information();
+				}				
+				
 				System.out.println("PRESCRIPTION: ");
 				System.out.println(sdf2.format(new Date()));
-				System.out.println(phy);			
+				System.out.println(phy);
+				if (resp == 'y') {
+					System.out.println("Additional Information: ");
+					phy.getInf();					
+				}
 			}
 			catch (Exception e) {				
 				System.out.println("Invalid input data");

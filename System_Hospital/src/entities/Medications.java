@@ -34,8 +34,7 @@ public class Medications {
 	public String toString() {
 		return  medName
 				+ ", "
-				+ dose
-				+ " ml";
+				+ dose;
 
 	}
 	
