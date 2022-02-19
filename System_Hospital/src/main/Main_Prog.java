@@ -72,9 +72,8 @@ public class Main_Prog {
 					String dose = sc.nextLine();		
 					Medications medication = new Medications(medications, dose);
 					phy.addMedications(medication);
-				}
-			
-				sc.nextLine();		
+				}			
+					
 				phy.addPatient(pat);
 				
 				System.out.println();
@@ -90,7 +89,7 @@ public class Main_Prog {
 				System.out.println(phy);
 				if (resp == 'y') {
 					System.out.println("Additional Information: ");
-					phy.getInf();					
+					System.out.print(phy.getInf()); 				
 				}
 			}
 			catch (Exception e) {				
