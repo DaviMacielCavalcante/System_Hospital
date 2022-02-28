@@ -7,7 +7,7 @@ public class Patient {
 
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	private String name;
+	private static String name;
 	private Integer rg;
 	private Integer cpf;
 	private String street;
@@ -24,7 +24,7 @@ public class Patient {
 
 	public Patient(String name, Integer rg, Integer cpf, String street, int house, String district, String city,
 			String state, Date birthDate, String phoneN) {		
-		this.name = name;
+		Patient.name = name;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.street = street;
@@ -36,7 +36,7 @@ public class Patient {
 		this.phoneN = phoneN;
 	}
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 	

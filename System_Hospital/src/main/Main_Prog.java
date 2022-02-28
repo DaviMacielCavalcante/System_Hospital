@@ -22,7 +22,7 @@ public class Main_Prog {
 		System.out.println("--------------------------------------");
 		System.out.println("       HOSPITAL SHINY STUFF           ");
 		System.out.println("--------------------------------------");
-		System.out.println();
+		System.out.println();		
 		
 		boolean error = true;
 		do {			
