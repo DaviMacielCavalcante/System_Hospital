@@ -74,7 +74,7 @@ public class Main_Prog {
 					phy.addMedications(medication);
 				}			
 					
-				phy.addPatient(pat);
+				phy.addPatients(pat);
 				
 				System.out.println();
 				

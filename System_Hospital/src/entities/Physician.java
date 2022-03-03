@@ -4,68 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Physician {
+import entitites.abstracts.AllPhy;
+import services.ManagePatients;
 
-	private String name;
-	private String crm;		
-	private String specName;
-	private String inf;
-	
+public class Physician extends AllPhy implements ManagePatients {
+
 	private List<Patient> patient = new ArrayList<>();
 	private List<Medications> medication = new ArrayList<>();
 	
 	public Physician() {
-		
+		super();
 	}
-
-	public Physician(String name, String crm, String specName) {		
-		this.name = name;
-		this.crm = crm;		
-		this.specName = specName;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCrm() {
-		return crm;
-	}
-
-	public String getEspecName() {
-		return specName;
-	}	
+	
+	public Physician(String name, String crm, String specName) {
+		super(name, crm, specName);		
+	}		
 	
 	public List<Patient> getPatient() {
 		return patient;
 	}
-	
-	public String getInf() {
-		return inf;
+
+	public List<Medications> getMedication() {
+		return medication;
 	}
 
-	public void addPatient(Patient patients) {
+	@Override
+	public void addPatients(Patient patients) {
 		patient.add(patients);
-	}
-	
-	public void removePatient(Patient patients) {
-		patient.remove(patients);	
-	}
-	
-	public void addMedications(Medications medication) {
-		this.medication.add(medication);
-	}
-	
-	public void removeMedications(Medications medication) {
-		this.medication.remove(medication);	
-	}
-	
-	public String information() {
 		
+	}
+
+	@Override
+	public void removePatients(Patient patients) {
+		patient.remove(patients);
+		
+	}
+
+	@Override
+	public void addMedications(Medications medications) {
+		medication.add(medications);		
+	}
+
+	@Override
+	public void removeMedications(Medications medications) {
+		medication.remove(medications);		
+	}
+	
+	@Override
+	public String information() {		
 		Scanner sc = new Scanner(System.in);
 		
 		String or = sc.nextLine();		
@@ -89,7 +75,6 @@ public class Physician {
 			sb.append(m + "\n");
 		}			
 		return sb.toString();
-	}
-	
+	}	
 	
 }
