@@ -62,17 +62,17 @@ public class Physician extends AllPhy implements ManagePatients {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Doctor name: ");
-		sb.append(name + "\n");
-		sb.append("Specialization: ");
-		sb.append(specName + "\n");
-		sb.append("Patient: ");
+		sb.append("Médico(a): ");
+		sb.append(name + "\n\n");		
+		sb.append("Especialização: ");
+		sb.append(specName + "\n\n");		
+		sb.append("Paciente: ");
 		for (Patient p : patient) {
-			sb.append(p + "\n");
+			sb.append(p + "\n\n");
 		}
-		sb.append("Medication and Dose: \n");
+		sb.append("Medicação e Dose: \n\n");
 		for (Medications m : medication) {
-			sb.append(m + "\n");
+			sb.append(m + ". \n");
 		}			
 		return sb.toString();
 	}	

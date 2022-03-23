@@ -20,7 +20,7 @@ public class Main_Prog {
 		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
 		System.out.println("--------------------------------------");
-		System.out.println("       HOSPITAL SHINY STUFF           ");
+		System.out.println("       HOSPITAL PÉ DE DEFUNTO           ");
 		System.out.println("--------------------------------------");
 		System.out.println();		
 		
@@ -28,45 +28,35 @@ public class Main_Prog {
 		do {			
 			try {
 				error = false;				
-				System.out.println("Enter patient data: ");
-				System.out.print("NAME: ");
-				String namePat = sc.nextLine();
-				System.out.print("RG: ");
-				Integer rg = Integer.valueOf(sc.nextLine());
+				System.out.println("Informe os dados do paciente: ");
+				System.out.print("Nome: ");
+				String namePat = sc.nextLine();				
 				System.out.print("CPF: ");
-				Integer cpf = Integer.valueOf(sc.nextLine());
-				System.out.print("STREET: ");
-				String street = sc.nextLine();
-				System.out.print("HOUSE: ");
-				int house = sc.nextInt();
-				System.out.print("DISTRICT: ");
-				sc.nextLine();
-				String distr = sc.nextLine();
-				System.out.print("CITY: ");
-				String city = sc.nextLine();
-				System.out.print("STATE: ");
-				String state = sc.nextLine();
-				System.out.print("BIRTH DATE: ");
+				String cpf = sc.nextLine();				
+				System.out.print("Data de Nascimento: ");
 				Date birth_date = sdf.parse(sc.nextLine());
-				System.out.print("PHONE NUMBER: ");
+				System.out.print("Telefone: ");
 				String phNumb = sc.nextLine();			
-				Patient pat = new Patient(namePat, rg, cpf, street, house, distr, city, state, birth_date, phNumb);
+				Patient pat = new Patient(namePat, cpf, birth_date, phNumb);
 			
-				System.out.println("Enter doctor data: ");
-				System.out.print("NAME: ");
+				System.out.println();
+				System.out.println("Informe dos dados do médico: ");
+				System.out.print("Nome: ");
 				String name = sc.nextLine();
 				System.out.print("CRM: ");
 				String crm_cod = sc.nextLine();
-				System.out.print("ESPECIALIZATION: ");
+				System.out.print("Especialização: ");
 				String especi = sc.next();		
 				Physician phy = new Physician(name, crm_cod, especi);
 			
-			
-				System.out.print("How many medications? ");
+				System.out.println();
+				System.out.print("Quantos medicamentos? ");
 				int n = sc.nextInt();
+				sc.nextLine();
+				
 				for (int i = 1; i <= n; i++) {
-					sc.nextLine();
-					System.out.print("Medication: ");
+					System.out.println();
+					System.out.print("Medicamento: ");
 					String medications = sc.nextLine();					
 					System.out.print("Dose: ");
 					String dose = sc.nextLine();		
@@ -78,22 +68,27 @@ public class Main_Prog {
 				
 				System.out.println();
 				
-				System.out.println("Any additional information? [y/n]");
+				System.out.println("Alguma informação adicional? [s/n]");
 				char resp = sc.next().charAt(0);
-				if ( resp == 'y') {
+				
+				if ( resp == 's') {
 					phy.information();
 				}				
-				
-				System.out.println("PRESCRIPTION: ");
-				System.out.println(sdf2.format(new Date()));
-				System.out.println(phy);
-				if (resp == 'y') {
-					System.out.println("Additional Information: ");
+				System.out.println();
+				System.out.println("Prescrição: ");
+				System.out.println();
+				System.out.println(sdf2.format(new Date()));				
+				System.out.println(phy);				
+				if (resp == 's') {
+					System.out.println("Informação Adicional: ");
 					System.out.print(phy.getInf()); 				
 				}
 			}
-			catch (Exception e) {				
-				System.out.println("Invalid input data");
+			catch (Exception e) {
+				System.out.println();
+				System.out.println("Entrada de dados inválida!");
+				System.out.println();
+				System.out.println("Aperte enter para recomeçar.");
 				error = true;
 				sc.nextLine();
 			}				
