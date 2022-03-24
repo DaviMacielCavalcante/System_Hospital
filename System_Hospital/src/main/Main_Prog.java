@@ -27,18 +27,28 @@ public class Main_Prog {
 		boolean error = true;
 		do {			
 			try {
-				error = false;				
-				System.out.println("Informe os dados do paciente: ");
-				System.out.print("Nome: ");
-				String namePat = sc.nextLine();				
-				System.out.print("CPF: ");
-				String cpf = sc.nextLine();				
-				System.out.print("Data de Nascimento: ");
-				Date birth_date = sdf.parse(sc.nextLine());
-				System.out.print("Telefone: ");
-				String phNumb = sc.nextLine();			
-				Patient pat = new Patient(namePat, cpf, birth_date, phNumb);
-			
+				error = false;
+				
+				Patient pat = new Patient("Maria", "00539855296", sdf.parse("25/05/1995"), "55555555");
+				System.out.println("O paciente já está registrado? [s/n]");
+				char exists = sc.next().charAt(0);
+				if (exists == 's') {
+					System.out.println(pat.toString()); 
+				}
+				else {					
+					sc.nextLine();
+					System.out.println("Informe os dados do paciente: ");
+					System.out.print("Nome: ");
+					String namePat = sc.nextLine();				
+					System.out.print("CPF: ");
+					String cpf = sc.nextLine();				
+					System.out.print("Data de Nascimento: ");
+					Date birth_date = sdf.parse(sc.nextLine());
+					System.out.print("Telefone: ");
+					String phNumb = sc.nextLine();			
+					pat = new Patient(namePat, cpf, birth_date, phNumb);					
+				}			
+				sc.nextLine();
 				System.out.println();
 				System.out.println("Informe dos dados do médico: ");
 				System.out.print("Nome: ");
