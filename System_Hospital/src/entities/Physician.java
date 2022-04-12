@@ -13,7 +13,7 @@ public class Physician extends AllPhy implements ManagePatients {
 	private List<Medications> medication = new ArrayList<>();
 	
 	public Physician() {
-		super();
+		
 	}
 	
 	public Physician(String name, String crm, String specName) {
