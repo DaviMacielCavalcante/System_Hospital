@@ -1,4 +1,4 @@
-package entitites.abstracts;
+package entities.abstracts;
 
 public abstract class AllPhy {
 	

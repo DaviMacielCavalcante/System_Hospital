@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import entitites.abstracts.AllPhy;
+import entities.abstracts.AllPhy;
 import services.ManagePatients;
 
 public class Physician extends AllPhy implements ManagePatients {
