@@ -34,7 +34,7 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 					"INSERT INTO medications "
 					+ "(name, dose, id_fabricantes) "
 					+ "VALUES "
-					+ "(?, ?, ?) ",
+					+ "(?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
 			ps.setString(1, med.getMedName());
@@ -121,9 +121,43 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 	}
 	
 	@Override
-	public Medications findByFabricantes(Fabricantes fab) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Medications> findByFabricantes(Integer id) {
+		PreparedStatement ps = null;
+		ResultSet rs= null;
+		
+		try {
+			ps = conn.prepareStatement(
+					"SELECT m.id, m.name, m.dose, f.name "
+					+ "FROM medications AS m INNER JOIN fabricantes AS f ON m.id_fabricantes = f.id WHERE m.id_fabricantes = ?");
+			
+			ps.setInt(1, id);
+			
+			rs = ps.executeQuery();
+			
+			List<Medications> list = new ArrayList<>();
+			
+			Map<Integer, Fabricantes> map = new HashMap<>();
+			
+			while (rs.next()) {
+					Fabricantes fab = map.get(rs.getInt("id"));
+
+					if (fab == null) {
+						fab = instantiateFabricantes(rs);
+						map.put(rs.getInt("id"), fab);
+					}
+					
+					Medications med = instantiateMedications(rs, fab);
+					list.add(med);
+			}
+			return list;
+		}
+		catch (SQLException e) {
+			throw new DbException("Unexpected error! No rows affected");
+		}
+		finally {
+			DB.closeStatement(ps);
+			DB.closeResultSet(rs);
+		}
 	}
 	
 	private Fabricantes instantiateFabricantes(ResultSet rs) throws SQLException {
@@ -183,10 +217,25 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		
+		PreparedStatement ps = null;
+		
+		try {
+			ps= conn.prepareStatement(
+					"DELETE FROM fabricantes WHERE id = ?");
+			
+			ps.setInt(1, id);
+			
+			ps.executeUpdate();
+		}
+		catch (SQLException e) {
+			throw new DbException("Unexpected error! No rows affected");
+		}
+		finally {
+			DB.closeStatement(ps);
+		}
 		
 	}
-
 	
 
 }

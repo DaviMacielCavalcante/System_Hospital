@@ -2,7 +2,6 @@ package model.dao;
 
 import java.util.List;
 
-import entities.Fabricantes;
 import entities.Medications;
 
 public interface MedicationsDao {
@@ -12,5 +11,5 @@ public interface MedicationsDao {
 	void deleteById(Integer id);
 	Medications findByName(String name);
 	List<Medications> findAll();
-	Medications findByFabricantes(Fabricantes fab);
+	List<Medications> findByFabricantes(Integer id);
 }

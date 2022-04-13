@@ -1,10 +1,7 @@
 package main.testes;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-import entities.Fabricantes;
 import model.dao.DaoFactory;
 import model.dao.FabricantesDao;
 
@@ -71,6 +68,8 @@ public class ProgramFabTeste {
 		} */
 		
 		//Tudo ok!
+		
+		
 		
 		sc.close();
 	}
