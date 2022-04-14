@@ -67,10 +67,8 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 		
 		try {
 			ps = conn.prepareStatement(
-					"INSERT INTO medications "
-					+ "(name, dose, id_fabricantes) "
-					+ "VALUES "
-					+ "(?, ?, ?) "
+					"UPDATE medications "
+					+ "SET name = ?, dose = ?, id_fabricantes = ? "
 					+ "WHERE id = ?");
 			
 			ps.setString(1, med.getMedName());
@@ -91,25 +89,38 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 	}	
 
 	@Override
-	public Medications findByName(String name) {
+	public List<Medications> findByName(String name) {
 		
 		PreparedStatement ps = null;
 		ResultSet rs= null;
 		
 		try {
 			ps = conn.prepareStatement(
-					"SELECT * FROM medications WHERE name = ?");
+					"SELECT m.*, f.name "
+					+ "FROM medications AS m INNER JOIN fabricantes AS f ON m.id_fabricantes = f.id WHERE m.name = ?");
 			
 			ps.setString(1, name);
 			
 			rs = ps.executeQuery();
 			
-			if (rs.next()) {
-					Fabricantes fab = instantiateFabricantes(rs);					
+			List<Medications> list = new ArrayList<>();
+			
+			Map<Integer, Fabricantes> map = new HashMap<>();
+			
+			while (rs.next()) {
+				
+					Fabricantes fab = map.get(rs.getInt("id_fabricantes"));
+
+					if (fab == null) {						
+						fab = instantiateFabricantes(rs);
+						map.put(rs.getInt("id_fabricantes"), fab);
+					}
+					
 					Medications med = instantiateMedications(rs, fab);
-					return med;
+					list.add(med);
 			}
-			return null;
+			return list;
+			
 		}
 		catch (SQLException e) {
 			throw new DbException("Unexpected error! No rows affected");
@@ -127,7 +138,7 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 		
 		try {
 			ps = conn.prepareStatement(
-					"SELECT m.id, m.name, m.dose, f.name "
+					"SELECT m.*, f.name "
 					+ "FROM medications AS m INNER JOIN fabricantes AS f ON m.id_fabricantes = f.id WHERE m.id_fabricantes = ?");
 			
 			ps.setInt(1, id);
@@ -139,11 +150,11 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 			Map<Integer, Fabricantes> map = new HashMap<>();
 			
 			while (rs.next()) {
-					Fabricantes fab = map.get(rs.getInt("id"));
+					Fabricantes fab = map.get(rs.getInt("id_fabricantes"));
 
 					if (fab == null) {
 						fab = instantiateFabricantes(rs);
-						map.put(rs.getInt("id"), fab);
+						map.put(rs.getInt("id_fabricantes"), fab);
 					}
 					
 					Medications med = instantiateMedications(rs, fab);
@@ -162,8 +173,8 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 	
 	private Fabricantes instantiateFabricantes(ResultSet rs) throws SQLException {
 		Fabricantes fab = new Fabricantes();
-		fab.setId(rs.getInt("id"));
-		fab.setName(rs.getString("name"));
+		fab.setId(rs.getInt("id_fabricantes"));
+		fab.setName(rs.getString("f.name"));
 		return fab;
 	}
 	
@@ -185,7 +196,7 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 		
 		try {
 			ps = conn.prepareStatement(
-					"SELECT * FROM medications");		
+					"SELECT m.*, f.name FROM medications AS m INNER JOIN fabricantes f ON m.id_fabricantes = f.id WHERE m.id_fabricantes = f.id");		
 			
 			rs = ps.executeQuery();
 			
@@ -194,11 +205,11 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 			Map<Integer, Fabricantes> map = new HashMap<>();
 			
 			while (rs.next()) {
-					Fabricantes fab = map.get(rs.getInt("id"));
+					Fabricantes fab = map.get(rs.getInt("id_fabricantes"));
 
 					if (fab == null) {
 						fab = instantiateFabricantes(rs);
-						map.put(rs.getInt("id"), fab);
+						map.put(rs.getInt("id_fabricantes"), fab);
 					}
 					
 					Medications med = instantiateMedications(rs, fab);
@@ -222,7 +233,7 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 		
 		try {
 			ps= conn.prepareStatement(
-					"DELETE FROM fabricantes WHERE id = ?");
+					"DELETE FROM medications WHERE id = ?");
 			
 			ps.setInt(1, id);
 			

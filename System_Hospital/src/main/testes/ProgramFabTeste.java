@@ -11,9 +11,9 @@ public class ProgramFabTeste {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		FabricantesDao fabDao = DaoFactory.createFabricantesDao();
+		/*FabricantesDao fabDao = DaoFactory.createFabricantesDao();
 		
-		/*System.out.println("=== TEST 1: fabricantes insert ====");	
+		System.out.println("=== TEST 1: fabricantes insert ====");	
 		
 		System.out.println("Informe o nome: ");
 		
