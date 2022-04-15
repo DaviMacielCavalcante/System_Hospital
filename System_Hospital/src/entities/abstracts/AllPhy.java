@@ -2,16 +2,17 @@ package entities.abstracts;
 
 public abstract class AllPhy {
 	
+	protected Integer id;
 	protected String name;
 	protected String crm;		
-	protected String specName;
-	protected String inf;		
+	protected String specName;			
 	
 	public AllPhy() {
 		super();
 	}
 
-	public AllPhy(String name, String crm, String specName) {		
+	public AllPhy(Integer id, String name, String crm, String specName) {	
+		this.id = id;
 		this.name = name;
 		this.crm = crm;
 		this.specName = specName;
@@ -41,12 +42,11 @@ public abstract class AllPhy {
 		this.specName = specName;
 	}
 
-	public String getInf() {
-		return inf;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setInf(String inf) {
-		this.inf = inf;
+	public void setId(Integer id) {
+		this.id = id;
 	}	
-	
 }
