@@ -1,7 +1,5 @@
 package model.dao;
 
-import java.util.List;
-
 import entities.Physician;
 
 public interface PhysicianDao {

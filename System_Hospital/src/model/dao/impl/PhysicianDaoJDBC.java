@@ -64,11 +64,13 @@ public class PhysicianDaoJDBC implements PhysicianDao {
 		try {
 			ps = conn.prepareStatement(
 					"UPDATE physician "
-					+ "SET name = ? "
+					+ "SET name = ?, crm = ?, specName = ? "
 					+ "WHERE id = ?");
 			
 			ps.setString(1, phy.getName());
-			ps.setInt(2, phy.getId());
+			ps.setString(2, phy.getCrm());
+			ps.setString(3, phy.getSpecName());
+			ps.setInt(4, phy.getId());
 			
 			ps.executeUpdate();
 		}
