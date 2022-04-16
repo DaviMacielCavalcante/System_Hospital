@@ -1,20 +1,14 @@
 package main.testes;
 
-import java.util.Scanner;
-
-import entities.Physician;
-import model.dao.DaoFactory;
-import model.dao.PhysicianDao;
-
 public class ProgramPhyTestes {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);	
+		/*Scanner sc = new Scanner(System.in);	
 		
 		PhysicianDao phyDao = DaoFactory.createPhysicianDao();
 		
-		/*System.out.println("=== TEST 1: medications insert ====");	
+		System.out.println("=== TEST 1: medications insert ====");	
 		
 		System.out.print("Informe o nome: ");
 		
@@ -66,9 +60,9 @@ public class ProgramPhyTestes {
 		
 		phyDao.deleteById(id);
 		
-		*/
 		
-		sc.close();
+		
+		sc.close();*/
 	}
 	
 }

@@ -88,16 +88,8 @@ public class Patient implements Serializable {
 
 	@Override
 	public String toString() {
-		return  name
-				+ ", "
-				+ cpf
-				+ ", "
-				+ sdf.format(birthDate)
-				+ ", "
-				+ phoneN;
+		return "Patient [id=" + id + ", name=" + name + ", cpf=" + cpf + ", birthDate=" + birthDate + ", phoneN="
+				+ phoneN + "]";
 	}
-
-	
-	
 		
 }

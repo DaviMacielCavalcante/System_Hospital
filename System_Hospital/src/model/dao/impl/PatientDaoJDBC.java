@@ -69,24 +69,17 @@ private Connection conn;
 		try {
 			ps = conn.prepareStatement(
 					"UPDATE patient "
-					+ "SET name = ?, cpf = ?, birthDate = ?, phoneN = ?) "					
-					+ "WHERE name = ? ");
+					+ "SET name = ?, cpf = ?, birthDate = ?, phoneN = ? "					
+					+ "WHERE id = ? ");
 			
 			ps.setString(1, pat.getName());
 			ps.setString(2, pat.getCpf());
 			ps.setDate(3, new java.sql.Date(pat.getBirthDate().getTime()));
 			ps.setString(4, pat.getPhoneN());			
+			ps.setInt(5, pat.getId());
 			
-			int rowsAff = ps.executeUpdate();
+			ps.executeUpdate();			
 			
-			if (rowsAff > 0) {
-				ResultSet rs = ps.getGeneratedKeys();
-				if (rs.next()) {
-						int id = rs.getInt(1);
-						pat.setId(id);
-				}
-				DB.closeResultSet(rs);
-			}
 		}
 		catch (SQLException e) {
 			throw new DbException("Unexpected error! No rows affected");
@@ -123,6 +116,9 @@ private Connection conn;
 		Patient pat = new Patient();
 		pat.setId(rs.getInt("id"));
 		pat.setName(rs.getString("name"));
+		pat.setCpf(rs.getString("cpf"));
+		pat.setBirthDate((rs.getDate("birthDate")));
+		pat.setPhoneN(rs.getString("phoneN"));			
 		return pat;
 	}
 
@@ -133,7 +129,7 @@ private Connection conn;
 		
 		try {
 			ps = conn.prepareStatement(
-					"SELECT * FROM patients");		
+					"SELECT * FROM patient");		
 			
 			rs = ps.executeQuery();
 			

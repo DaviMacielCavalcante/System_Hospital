@@ -1,17 +1,12 @@
 package main.testes;
 
-import java.util.Scanner;
-
-import model.dao.DaoFactory;
-import model.dao.FabricantesDao;
-
 public class ProgramFabTeste {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		/* Scanner sc = new Scanner(System.in);
 		
-		/*FabricantesDao fabDao = DaoFactory.createFabricantesDao();
+		FabricantesDao fabDao = DaoFactory.createFabricantesDao();
 		
 		System.out.println("=== TEST 1: fabricantes insert ====");	
 		
@@ -65,13 +60,13 @@ public class ProgramFabTeste {
 		
 		for (Fabricantes fab : list) {
 			System.out.println(fab);
-		} */
+		} 
 		
 		//Tudo ok!
 		
 		
 		
-		sc.close();
+		sc.close();*/
 	}
 
 }

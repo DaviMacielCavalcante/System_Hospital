@@ -1,24 +1,15 @@
 package main.testes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import entities.Fabricantes;
-import entities.Medications;
-import model.dao.DaoFactory;
-import model.dao.MedicationsDao;
-
 public class ProgramMediTest {
 
 	public static void main(String[] args) {
 		
 		
-		Scanner sc = new Scanner(System.in);	
+		/*Scanner sc = new Scanner(System.in);	
 		
 		MedicationsDao medDao = DaoFactory.createMedicationsDao();
 		
-		/*System.out.println("=== TEST 1: medications insert ====");	
+		System.out.println("=== TEST 1: medications insert ====");	
 		
 		System.out.print("Informe o nome: ");
 		
@@ -117,9 +108,9 @@ public class ProgramMediTest {
 		
 		medDao.deleteById(id);
 		
-		*/
 		
-		sc.close();
+		
+		sc.close();*/
 	}
 
 }
