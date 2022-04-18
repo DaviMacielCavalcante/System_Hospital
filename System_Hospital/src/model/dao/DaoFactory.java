@@ -5,6 +5,7 @@ import model.dao.impl.FabricantesDaoJDBC;
 import model.dao.impl.MedicationsDaoJDBC;
 import model.dao.impl.PatientDaoJDBC;
 import model.dao.impl.PhysicianDaoJDBC;
+import model.dao.impl.ReceitaDaoJDBC;
 
 public class DaoFactory {
 
@@ -24,4 +25,7 @@ public class DaoFactory {
 		return new PatientDaoJDBC(DB.getConnection());
 	}
 
+	public static ReceitaDao createReceitaDao() {
+		return new ReceitaDaoJDBC(DB.getConnection());
+	}
 }

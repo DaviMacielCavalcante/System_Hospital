@@ -39,7 +39,7 @@ public class MedicationsDaoJDBC implements MedicationsDao {
 			
 			ps.setString(1, med.getMedName());
 			ps.setString(2, med.getDose());
-			ps.setInt(3, med.getFabricante().getId());
+			ps.setInt(3, med.getFabricante().getId());			
 			
 			int rowsAff = ps.executeUpdate();
 			

@@ -1,15 +1,12 @@
 package entities;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
 public class Patient implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
-
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private static final long serialVersionUID = 1L;	
 	
 	private Integer id;
 	private String name;	
