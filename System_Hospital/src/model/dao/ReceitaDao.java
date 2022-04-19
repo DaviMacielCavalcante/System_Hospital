@@ -8,6 +8,6 @@ public interface ReceitaDao {
 
 	void insert(Receita rec);
 	void deleteById(Integer id);
-	Receita findByPatName(String name);	
+	List<Receita> findByPatName(String name);	
 	List<Receita> findAll();
 }

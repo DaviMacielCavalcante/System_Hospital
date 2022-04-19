@@ -14,8 +14,11 @@ public class Physician extends AllPhy implements Serializable {
 	
 	public Physician(Integer id, String name, String crm, String specName) {
 		super(id, name, crm, specName);		
-	}		
-	
-	
+	}
+
+	@Override
+	public String toString() {
+		return "Physician [id=" + id + ", name=" + name + ", crm=" + crm + ", specName=" + specName + "]";
+	}
 	
 }

@@ -1,11 +1,9 @@
 package main.testes;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import entities.Medications;
-import entities.Patient;
-import entities.Physician;
 import entities.Receita;
 import model.dao.DaoFactory;
 import model.dao.ReceitaDao;
@@ -18,7 +16,7 @@ public class ProgramRecTeste {
 		
 		ReceitaDao recDao = DaoFactory.createReceitaDao();
 
-		System.out.println("=== TEST 1: receita insert ====");
+		/*System.out.println("=== TEST 1: receita insert ====");
 		
 		System.out.println("Informe o código do Médico: ");
 		
@@ -47,6 +45,27 @@ public class ProgramRecTeste {
 		Integer id = sc.nextInt();
 		
 		recDao.deleteById(id);*/
+		
+		System.out.println("=== TEST 3: receitas findAll ====");				
+		
+		List<Receita> list = new ArrayList<>();
+		
+		list = recDao.findAll();
+		
+		for (Receita rec : list) {
+			System.out.println(rec);
+		}
+		
+		System.out.println("=== TEST 4: receitas findByPatName ====");				
+		
+		System.out.println("Informe o nome: ");
+		String name = sc.nextLine();
+		
+		list = recDao.findByPatName(name);
+		
+		for (Receita rec : list) {
+			System.out.println(rec);
+		}
 		
 		sc.close();
 	}
