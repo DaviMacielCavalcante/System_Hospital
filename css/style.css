@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* HEADER */
+.menu-navigation {
+    background-color: #3F3D56;
+}
+
+.navbar .search i {
+    font-size: 25px;
+    color: #757474;
+    display: flex;
+    margin: auto 0 auto -45px;
+}
+
+.navbar .button {
+    background-color: #FFF;
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+.navbar .button:hover {
+    background-color: #3F3D56;
+    border: 1px solid #FFF;
+    color: #FFF;
+}
+
+/* MAIN */
+.container-main {
+    margin-top: 90px;
+}
+
+.container-main h3 {
+    width: 35%;
+    display: flex;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.container-main a button {
+    background-color: #3F3D56;
+    color: #FFF;
+    padding: 15px 60px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+.container-main a button:hover {
+    background-color: #FFF;
+    border: 1px solid #3F3D56;
+    color: #3F3D56;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.copyright {
+    background-color: #3F3D56;
+    padding: 10px;
+}
+
+.copyright span {
+    color: #FFF;
+    font-weight: 400;
+}
