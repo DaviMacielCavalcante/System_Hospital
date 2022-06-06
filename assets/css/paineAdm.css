@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EDEDED;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* MENU LATERAL */
+#menu-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #3F3D56;
+    overflow-y: auto;
+    width: 200px;
+    transition: all ease-in-out 0.5s;
+    padding: 0 15px;
+    z-index: 9997;
+}
+
+#menu-side .logo img {
+    margin: 15px auto;
+    display: block;
+    width: 100px;
+    border-radius: 50%;
+}
+
+#menu-side .logo h1 {
+    font-size: 24px;
+    margin: 20px 0;
+    padding: 0;
+    font-weight: 600;
+    text-align: center;
+    color: #FFF;
+}
+
+.nav-menu {
+    display: block;
+    margin: 20px 0;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+    font-size: 24px;
+    padding-right: .8rem;
+    color: #FFF;
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+    color: #149ddd;
+}
+
+/* MAIN */
+#main-container {
+    margin-left: 200px;
+}
+
+/* HEADER */
+#header {
+    padding: 20px 0;
+    background-color: #F7F7F7;
+}
+
+#header .alert {
+    width: 75%;
+
+}
+
+#header span {
+    font-size: 12pt;
+}
+
+/* SECTION */
+#registers {
+    margin: 0 50px;
+}
+
+#registers span,
+#registers a {
+    font-size: 14pt;
+}
+
+#registers a,
+#registers a:focus,
+#sendEmails button,
+#sendEmails button:focus {
+    background-color: #3F3D56;
+    box-shadow: none;
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+#registers a:hover,
+#sendEmails button:hover {
+    background-color: #FFF;
+    border: 1px solid #3F3D56;
+    color: #3F3D56;
+    letter-spacing: 2px;
+}
