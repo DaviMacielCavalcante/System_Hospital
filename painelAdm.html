@@ -5,8 +5,180 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/paineAdm.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     
+    <aside id="menu-side">
+        <section class="logo">
+            <a href="index.html">
+                <img src="assets/img/Logo.png" alt="Logo">
+                <h1>Clínica Hospital</h1>
+            </a>
+        </section>
+
+        <nav id="navbar" class="nav-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                       <i class="bi bi-house-fill" aria-hidden="true"></i> Painel Administrativo
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person-fill" aria-hidden="true"></i> Pacientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-file-earmark-fill" aria-hidden="true"></i> Cadastros
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-currency-dollar" aria-hidden="true"></i> Financeiro
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-chat-fill" aria-hidden="true"></i> Suporte
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-card-list" aria-hidden="true"></i> Lista de Espera
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-gear-fill" aria-hidden="true"></i> Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <main id="main-container">
+        <header id="header" class="d-flex">
+            <div class="alert alert-success alert-dismissible fade show mx-auto my-auto" role="alert">
+                <span>Seja muito bem vindo a <strong>Clinica Hospital</strong> Comece agora a gerenciar o seu negócio!</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <h2 class="ms-3 d-none">Painel Administrativo</h2>
+            <div class="buttons ms-auto me-4 my-auto d-flex">
+                <a href="#">
+                    <button class="btn btn-primary me-2">
+                        <i class="bi bi-question-circle"></i> Ajuda
+                    </button>
+                </a>
+                <a href="index.html">
+                    <button class="btn btn-danger">
+                        <i class="bi bi-box-arrow-right"></i> Sair 
+                    </button>
+                </a>
+            </div>
+        </header>
+
+        <section id="registers">
+            <div class="container">
+                <div class="row my-5">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-person-plus-fill fs-1"></i>  
+                                <span class="ms-3">Pacientes</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>                      
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-person-lines-fill fs-1"></i>  
+                                <span class="ms-3">Médicos</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-activity fs-1"></i>  
+                                <span class="ms-3">Especialidade dos médicos</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                <div class="row my-5">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-list-ul fs-1"></i> 
+                                <span class="ms-3">Medicamentos</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>                      
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-person-plus-fill fs-1"></i>  
+                                <span class="ms-3">Fabricantes</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-file-earmark-text-fill fs-1"></i>  
+                                <span class="ms-3">Receitas médicas</span>
+                              <a href="cadastroPaciente.html" class="btn btn-primary form-control mt-3">Cadastrar</a>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sendEmails">
+            <h3 class="mb-5 d-flex justify-content-center">Envie um email já direto para o paciente ou fabricante</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <form class="row g-3 mx-5">
+                            <div class="col-12">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Assunto">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="6" placeholder="Mensagem..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary d-flex mx-auto w-50 justify-content-center mb-5">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="assets/img/EmailSend.png" width="400" height="400" class="img-fluid" alt="Imagem Ilustrativda">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="copyright text-center">
+            <span>&copy; Copyright by Clinica Hospital</span>
+        </footer>
+    </main>
+
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
