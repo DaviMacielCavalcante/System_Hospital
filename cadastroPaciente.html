@@ -5,8 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro do Paciente</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/paineAdm.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Cadastro do Paciente</h1>
+    
+    <aside id="menu-side">
+        <section class="logo">
+            <a href="index.html">
+                <img src="assets/img/Logo.png" alt="Logo">
+                <h1>Clínica Hospital</h1>
+            </a>
+        </section>
+
+        <nav id="navbar" class="nav-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                       <i class="bi bi-house-fill" aria-hidden="true"></i> Painel Administrativo
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person-fill" aria-hidden="true"></i> Pacientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-file-earmark-fill" aria-hidden="true"></i> Cadastros
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-currency-dollar" aria-hidden="true"></i> Financeiro
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-chat-fill" aria-hidden="true"></i> Suporte
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-card-list" aria-hidden="true"></i> Lista de Espera
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-gear-fill" aria-hidden="true"></i> Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <main id="main-container">
+        <header id="header" class="d-flex">
+            <h2 class="ms-5">Cadastro do Paciente</h2>
+            <div class="buttons ms-auto me-4 my-auto d-flex">
+                <a href="#">
+                    <button class="btn btn-primary me-2">
+                        <i class="bi bi-question-circle"></i> Ajuda
+                    </button>
+                </a>
+                <a href="index.html">
+                    <button class="btn btn-danger">
+                        <i class="bi bi-box-arrow-right"></i> Sair 
+                    </button>
+                </a>
+            </div>
+        </header>
+
+        <section id="Cadastro">
+            <form>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 mt-5">
+                            <label for="inputName" class="col-form-label">Nome Completo:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputName">
+                            </div>
+    
+                            <label for="inputDate" class="col-form-label">Data de Nascimento:</label>
+                            <div class="col-xl-10">
+                                <input type="date" class="form-control mb-3" id="inputDate">
+                            </div>
+    
+                            <label for="inputPassword" class="col-form-label">Sexo:</label>
+                            <div class="col-xl-10">
+                                <select class="form-select mb-3">
+                                    <option selected>Selecione</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+    
+                            <label for="inputCpf" class="col-form-label">CPF:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputCpf">
+                            </div>
+    
+                            <label for="inputRg" class="col-form-label">RG:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputRg">
+                            </div>
+
+                            <label for="inputFoto" class="col-form-label">Foto:</label>
+                            <div class="col-xl-10">
+                                <input type="file" class="form-control" id="inputFoto">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 mt-5">
+                            <label for="inputTel" class="col-form-label">Telefone:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputTel">
+                            </div>
+    
+                            <label for="inputCel" class="col-form-label">Celular:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputCel">
+                            </div>
+    
+                            <label for="inputEmail" class="col-form-label">Email:</label>
+                            <div class="col-xl-10">
+                                <input type="email" class="form-control mb-3" id="inputEmail">
+                            </div>
+    
+                            <label for="inputEndereco" class="col-form-label">Endereço:</label>
+                            <div class="col-xl-10">
+                                <input type="text" class="form-control mb-3" id="inputEndereco">
+                            </div>
+    
+                            <label for="inputProntuario" class="col-form-label">Nr. Prontuário:</label>
+                            <div class="col-xl-10">
+                                <input type="number" class="form-control mb-3" id="inputProntuario">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 my-5">
+                            <div class="buttons mt-5 me-4 d-flex justify-content-end">
+                                <a href="painelAdm.html"><button class="btn btn-danger me-2">Cancelar</button></a>
+                                <a href="#"><button type="submit" class="btn btn-success">Salvar</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="copyright text-center">
+            <span>&copy; Copyright by Clinica Hospital</span>
+        </footer>
+    </main>
+
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
