@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "receitas")
-public class Receitas implements Serializable {
+@Table(name = "receita")
+public class Receita implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -23,10 +23,10 @@ public class Receitas implements Serializable {
 	private Medications medications;
 	private Date date;
 	
-	public Receitas() {
+	public Receita() {
 	}
 
-	public Receitas(Integer id, Physician physician, Patient patient, Medications medications, Date date) {
+	public Receita(Integer id, Physician physician, Patient patient, Medications medications, Date date) {
 		this.id = id;
 		this.physician = physician;
 		this.patient = patient;
@@ -87,7 +87,7 @@ public class Receitas implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Receitas other = (Receitas) obj;
+		Receita other = (Receita) obj;
 		return Objects.equals(patient, other.patient);
 	}	
 }

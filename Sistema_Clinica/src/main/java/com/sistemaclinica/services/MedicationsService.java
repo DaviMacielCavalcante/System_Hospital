@@ -52,8 +52,7 @@ public class MedicationsService {
 	private void updateData(Medications entity, Medications obj) {
 		entity.setId(obj.getId());
 		entity.setName(obj.getName());
-		entity.setDose(obj.getDose());
-		entity.setFabricantes(obj.getFabricantes());;
+		entity.setDose(obj.getDose());		
 	}
 	
 }

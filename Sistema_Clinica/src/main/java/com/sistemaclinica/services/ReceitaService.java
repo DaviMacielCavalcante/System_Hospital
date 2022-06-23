@@ -7,30 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sistemaclinica.entities.Patient;
-import com.sistemaclinica.entities.Receitas;
-import com.sistemaclinica.repositories.ReceitasRepository;
+import com.sistemaclinica.entities.Receita;
+import com.sistemaclinica.repositories.ReceitaRepository;
 
 @Service
-public class ReceitasService {
+public class ReceitaService {
 
 	@Autowired
-	private ReceitasRepository repository;
+	private ReceitaRepository repository;
 	
-	public List<Receitas> findAll(){
+	public List<Receita> findAll(){
 		return repository.findAll();
 	}
 	
-	public Receitas findById(Integer id) {
-		Optional<Receitas> obj = repository.findById(id);
+	public Receita findById(Integer id) {
+		Optional<Receita> obj = repository.findById(id);
 		return obj.get();
 	}	
 	
-	public List<Receitas> findByPatient(Patient pat) {
-		List<Receitas> list = repository.findByPatient(pat);		
+	public List<Receita> findByPatient(Patient pat) {
+		List<Receita> list = repository.findByPatient(pat);		
 		return list;
 	}
 	
-	public Receitas insert(Receitas phy) {
+	public Receita insert(Receita phy) {
 		return repository.save(phy);
 	}
 	
@@ -38,13 +38,13 @@ public class ReceitasService {
 		repository.deleteById(id);
 	}
 	
-	public Receitas update(Integer id, Receitas obj) {
-		Receitas entity = findById(id);
+	public Receita update(Integer id, Receita obj) {
+		Receita entity = findById(id);
 		updateData(entity, obj);
 		return repository.save(entity);
 	}
 	
-	private void updateData(Receitas entity, Receitas obj) {
+	private void updateData(Receita entity, Receita obj) {
 		entity.setId(obj.getId());
 		entity.setPhysician(obj.getPhysician());
 		entity.setPatient(obj.getPatient());

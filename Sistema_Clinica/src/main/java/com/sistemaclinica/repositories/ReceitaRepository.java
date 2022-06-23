@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sistemaclinica.entities.Patient;
-import com.sistemaclinica.entities.Receitas;
+import com.sistemaclinica.entities.Receita;
 
-public interface ReceitasRepository extends JpaRepository<Receitas, Integer> {
+public interface ReceitaRepository extends JpaRepository<Receita, Integer> {
 
-	List<Receitas> findByPatient(Patient pat);
+	List<Receita> findByPatient(Patient pat);
 
 }

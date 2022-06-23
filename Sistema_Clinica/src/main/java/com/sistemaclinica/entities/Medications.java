@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +20,10 @@ public class Medications implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
-	private String dose;
+	private String dose;	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_fabricantes")
 	private Fabricantes fabricantes;
 	
 	public Medications() {		
@@ -53,11 +58,11 @@ public class Medications implements Serializable {
 
 	public void setDose(String dose) {
 		this.dose = dose;
-	}
+	}	
 
 	public Fabricantes getFabricantes() {
 		return fabricantes;
-	}
+	}	
 
 	public void setFabricantes(Fabricantes fabricantes) {
 		this.fabricantes = fabricantes;
