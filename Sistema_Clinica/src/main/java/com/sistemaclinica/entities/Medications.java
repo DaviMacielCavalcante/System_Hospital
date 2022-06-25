@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "medications")
 public class Medications implements Serializable {	
@@ -22,6 +24,7 @@ public class Medications implements Serializable {
 	private String name;
 	private String dose;	
 	
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "id_fabricantes")
 	private Fabricantes fabricantes;

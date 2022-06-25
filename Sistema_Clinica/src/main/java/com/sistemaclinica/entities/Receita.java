@@ -8,7 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "receita")
@@ -18,8 +22,16 @@ public class Receita implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	private Physician physician;
-	private Patient patient;
+	
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name = "id_phy")
+	private Physician physician;	
+	
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name = "id_pat")
+	private Patient patient;	
 	private Medications medications;
 	private Date date;
 	

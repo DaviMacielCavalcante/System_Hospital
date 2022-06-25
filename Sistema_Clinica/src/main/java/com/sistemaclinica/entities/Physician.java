@@ -3,6 +3,7 @@ package com.sistemaclinica.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,9 @@ public class Physician implements Serializable {
 	private Integer id;
 	private String name;
 	private String crm;
-	private String specName;
+	
+	@Column(name = "specName")
+	private String specName;	
 	
 	public Physician() {		
 	}
