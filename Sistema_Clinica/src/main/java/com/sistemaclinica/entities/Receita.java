@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -32,7 +34,13 @@ public class Receita implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_pat")
 	private Patient patient;	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_medications")
 	private Medications medications;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "data")
 	private Date date;
 	
 	public Receita() {
