@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "fabricantes")
@@ -20,11 +20,11 @@ public class Fabricantes implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;	
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "fabricantes")
 	private List<Medications> medications = new ArrayList<>();
 	
