@@ -1,7 +1,6 @@
 package com.sistemaclinica.resources;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.sistemaclinica.entities.Fabricantes;
 import com.sistemaclinica.entities.Medications;
 import com.sistemaclinica.services.MedicationsService;
 
@@ -47,25 +45,7 @@ public class MedicationsResource {
 		List<Medications> meds = service.findAll();
 		
 		return ResponseEntity.ok().body(meds);
-	}
-	
-	@RequestMapping(value = "/fabs/{fabr}", method = RequestMethod.GET)
-	public ResponseEntity<?> findByFabricantes(@PathVariable Fabricantes fabr) {
-		
-		List<Medications> meds = service.findByFabricantes(fabr);		
-		
-		List<Medications> medFab = new ArrayList<>();
-		
-		for (Medications med : meds) {			
-			if (med.getFabricantes().equals(fabr)) {				
-				medFab.add(med);
-			}				
-		}
-		
-		meds = medFab;
-		
-		return ResponseEntity.ok().body(meds);
-	}
+	}	
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Medications med) {
