@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "medications")
 public class Medications implements Serializable {	
@@ -22,9 +20,8 @@ public class Medications implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	private String dose;	
+	private String dose;		
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_fabricantes")
 	private Fabricantes fabricantes;
