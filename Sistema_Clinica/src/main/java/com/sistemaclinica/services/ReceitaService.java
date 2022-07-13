@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistemaclinica.entities.Patient;
 import com.sistemaclinica.entities.Receita;
+import com.sistemaclinica.repositories.PatientRepository;
 import com.sistemaclinica.repositories.ReceitaRepository;
 
 @Service
@@ -15,6 +16,9 @@ public class ReceitaService {
 
 	@Autowired
 	private ReceitaRepository repository;
+	
+	@Autowired
+	private PatientRepository patientRepository;
 	
 	public List<Receita> findAll(){
 		return repository.findAll();
@@ -25,9 +29,9 @@ public class ReceitaService {
 		return obj.get();
 	}	
 	
-	public List<Receita> findByPatient(Patient pat) {
-		List<Receita> list = repository.findByPatient(pat);		
-		return list;
+	public List<Receita> searchByPat(List<Integer> ids) {
+		List<Patient> listPat = patientRepository.findAllById(ids);	
+		return repository.search(listPat);
 	}
 	
 	public Receita insert(Receita phy) {
@@ -49,6 +53,7 @@ public class ReceitaService {
 		entity.setPhysician(obj.getPhysician());
 		entity.setPatient(obj.getPatient());
 		entity.setMedications(obj.getMedications());
+		entity.setDate(obj.getDate());
 	}
 	
 }

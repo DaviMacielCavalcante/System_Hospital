@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "receita")
@@ -25,12 +24,10 @@ public class Receita implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "id_phy")
 	private Physician physician;	
 	
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "id_pat")
 	private Patient patient;	
