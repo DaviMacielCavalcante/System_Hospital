@@ -1,4 +1,10 @@
-# System_Hospital
+# Meu primeiro CRUD: Sistema que registra receitas médicas
+
+![Licença usada](https://img.shields.io/github/license/DaviMacielCavalcante/System_Hospital)
+![SGBD](https://img.shields.io/badge/SGBD-MySQL-blue)
+![Java Version](https://img.shields.io/badge/Java-11-brightgreen)
+![Spring boot Version](https://img.shields.io/badge/Spring%20Boot-2.7.0-brightgreen)
+![Status](https://img.shields.io/badge/Status-Finalizado-brightgreen)
 
 ![medica_clinica](https://bulcaoezeferino.adv.br/wp-content/uploads/2020/10/Copia-de-consultorio-medico-site-1170x730.jpg)
 
