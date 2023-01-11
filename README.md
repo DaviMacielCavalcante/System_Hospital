@@ -29,6 +29,13 @@ Olá, eu criei esse repositório com base nos relatos de uma prima que faz gradu
 
 O sistema é composto por um banco de dados e uma API REST.
 
+## Requisitos funcionais
+
+Parte dos requisitos eu levantei mediante conversa com a minha referida parente, e alguns eu tomei a iniciativa de desenvolver visando uma melhor experiência para os usuários.
+
+1. Registro do histórico de receitas onde constem tanto o nome do médico que a prescreveu quanto o do paciente atendido.
+2. Capacidade de inserir, buscar e atualizar novos medicamentos no sistema assim como fabricantes de tais medicações, as receitas fornecidas, dados dos pacientes e dos médicos.
+
 ## Colaboradores
 
 O Vinicius Rubia é um colega de profissão com quem eu conversei, e se disponibilizou a contribuir com a parte de Front-end do meu sistema. Ele é o responsável pelos códigos escritos em linguaguens que não sejam Java ou SQL. Este é o link para o github dele: https://github.com/Vinicius-Rubia
